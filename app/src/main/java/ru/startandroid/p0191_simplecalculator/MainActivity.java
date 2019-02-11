@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -85,6 +86,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 result = num1 * num2;
                 break;
             case R.id.btnDiv:
+                if (num2==0) {
+                    Toast.makeText(this, "Деление на ноль недопустимо", Toast.LENGTH_LONG).show();
+                    etNum2.setText("");
+                    return;
+                }
                 oper = "/";
                 result = num1 / num2;
                 break;
